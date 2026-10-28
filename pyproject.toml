@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deep-learning-lab"
+version = "0.1.0"
+description = "Reproducible deep-learning experiments implemented from first principles."
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "matplotlib>=3.8"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
