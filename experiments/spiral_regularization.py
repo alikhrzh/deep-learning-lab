@@ -44,7 +44,7 @@ def main() -> None:
         axis.set_xticks([])
         axis.set_yticks([])
 
-    output = Path(__file__).resolve().parents[1] / "results" / "spiral_regularization.png"
+    output = Path(__file__).resolve().parents[1] / "assets" / "spiral_regularization.png"
     output.parent.mkdir(exist_ok=True)
     figure.tight_layout()
     figure.savefig(output, dpi=160)
