@@ -68,6 +68,21 @@ tests/                     gradient, learning, and endpoint tests
 Dockerfile                 CPU-only API image
 ```
 
+The repository follows a small `src` layout so reusable code stays separate
+from one-off experiments:
+
+- `src/deep_learning_lab/data.py` generates the deterministic spiral dataset.
+- `src/deep_learning_lab/mlp.py` contains the NumPy model, training loop, and
+  numerical gradient checker.
+- `src/deep_learning_lab/api.py` trains the lightweight baseline at startup and
+  exposes `/health` and `/predict`.
+- `experiments/spiral_regularization.py` compares the baseline with L2 +
+  dropout and regenerates the visualization in `assets/`.
+- `tests/test_mlp.py` checks learning, reproducibility, and gradients;
+  `tests/test_api.py` checks the HTTP contract and request validation.
+- `pyproject.toml`, `Dockerfile`, and `.github/workflows/tests.yml` define the
+  package, container, and continuous-integration entry points.
+
 ## Limitations
 
 - The generated spiral dataset is useful for debugging nonlinear boundaries, not for benchmarking real-world models.
